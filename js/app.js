@@ -1,6 +1,14 @@
 
+var url = window.location.href;
+// dirección que tengo en github
+var swLocation = '/twittor-pwa/sw.js'
+
 if(navigator.serviceWorker) {
-    navigator.serviceWorker.register('/sw.js');
+    // validación si está corriendo en local
+    if(url.includes('localhost')) {
+        swLocation = '/sw.js';
+    }
+    navigator.serviceWorker.register(swLocation);
 }
 
 
